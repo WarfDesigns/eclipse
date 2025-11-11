@@ -1,0 +1,19 @@
+html {background: #080008;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    margin: 0;
+}
+body {
+    background: #000;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;   
+}
+
