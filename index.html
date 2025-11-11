@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Static Eclipsed Moon with Glow</title>
+<style src="/css/styles.css"></style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="stars" id="stars"></div>
+
+    <svg viewBox="0 0 200 200" aria-label="Eclipsed moon with glow">
+      <defs>
+        <radialGradient id="moon-grad" cx="45%" cy="45%">
+          <stop offset="0%"  stop-color="var(--moon-core)" />
+          <stop offset="60%" stop-color="var(--moon-mid)" />
+          <stop offset="100%" stop-color="var(--moon-edge)" />
+        </radialGradient>
+
+        <filter id="blurGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="8" />
+        </filter>
+
+        <!-- Static eclipse mask -->
+        <mask id="eclipseMask">
+          <rect width="200" height="200" fill="white" />
+          <!-- Shadow covers part of moon -->
+          <circle cx="125" cy="100" r="65" fill="black" />
+        </mask>
+      </defs>
+
+      <!-- Glowing halo -->
+      <g class="glow" filter="url(#blurGlow)">
+        <circle cx="100" cy="100" r="70" fill="var(--glow)" />
+      </g>
+
+      <!-- Eclipsed moon -->
+      <g mask="url(#eclipseMask)">
+        <circle cx="100" cy="100" r="58" fill="url(#moon-grad)" />
+      </g>
+
+      <!-- Rim light -->
+      <circle cx="100" cy="100" r="58" fill="none" stroke="var(--glow)" stroke-width="1.5" opacity=".35" />
+    </svg>
+  </div>
+<script src="/js/script.js"></script>
+</body>
+</html>
